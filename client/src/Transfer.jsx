@@ -1,9 +1,14 @@
 import { useState } from "react";
 import server from "./server";
 
-function Transfer({ address, setBalance }) {
+import * as secp from "ethereum-cryptography/secp256k1"
+import { utf8ToBytes } from "ethereum-cryptography/utils"
+import { keccak256 } from "ethereum-cryptography/keccak"
+
+function Transfer({ address, setBalance, setTransaction, privateKey }) {
   const [sendAmount, setSendAmount] = useState("");
   const [recipient, setRecipient] = useState("");
+  const [nonce, setNonce] = useState(0);
 
   const setValue = (setter) => (evt) => setter(evt.target.value);
 

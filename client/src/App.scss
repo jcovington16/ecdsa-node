@@ -22,6 +22,13 @@ label {
   margin: 0 auto;
 }
 
+.trans_container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  gap: 15px;
+}
+
 .container {
   flex-grow: 1;
   margin: 0 20px;
