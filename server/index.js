@@ -26,13 +26,13 @@ app.post("/send", async (req, res) => {
   // TODO: get a signature from client-side application
   // recover the public address from the signature
 
-  setInitialBalance(sender);
-  setInitialBalance(recipient);
-
   const { sender, recipient, amount, nonce, signTx } = req.body;
 
   // collect the signature and recovery bit
   const [signature, recoveryBit] = signTx;
+
+  setInitialBalance(sender);
+  setInitialBalance(recipient);
 
   const newSignature = Uint8Array.from(Object.values(signature));
 
